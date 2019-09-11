@@ -1,7 +1,5 @@
 package VendingMachineUppgift;
 
-import java.util.UUID;
-
 public abstract class Product {
     private int price;
     private String productName;
@@ -23,24 +21,12 @@ public abstract class Product {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public String getProductName() {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
     public String getProductCalories() {
         return productCalories;
-    }
-
-    public void setProductCalories(String productCalories) {
-        this.productCalories = productCalories;
     }
 
     public String getAllergens() {

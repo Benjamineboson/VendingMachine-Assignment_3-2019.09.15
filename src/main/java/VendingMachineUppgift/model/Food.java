@@ -14,6 +14,7 @@ public class Food extends Product {
                 +"\nPrice: "+getPrice()+"\nAllergens: "+getAllergens()+"\nProduct number: "+getProductNumber();
     }
 
+    //Test This
     @Override
     public String useProduct(){
     return "You eat your "+getProductName()+"...";

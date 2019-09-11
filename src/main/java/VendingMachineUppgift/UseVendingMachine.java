@@ -6,18 +6,24 @@ public class UseVendingMachine implements IVendingMachine {
     private int moneyPool;
     private Product[] productArray;
 
+
     public UseVendingMachine(Product[] productArray) {
         this.moneyPool = 0;
         this.productArray = productArray;
     }
 
+    public Product[] getProductArray() {
+        return productArray;
+    }
+
+    // Skapa array med alla acceptabla amounts
     @Override
     public void addCurrency(int amount) {
     if (amount == 1 || amount == 5 || amount == 10 || amount == 20 || amount == 50 || amount == 100 || amount == 500 || amount == 1000){
         moneyPool += amount;
-        System.out.println("Current balance: "+moneyPool);
+       // System.out.println("Current balance: "+moneyPool);
         }else{
-        System.out.println("Var god för in accepterad valör: [1kr] [5kr] [10kr] [20kr] [50kr] [100kr] [500kr] [1000kr]");
+        System.out.println("Enter a valid currency: [1kr] [5kr] [10kr] [20kr] [50kr] [100kr] [500kr] [1000kr]");
     }
     }
 
@@ -34,11 +40,13 @@ public class UseVendingMachine implements IVendingMachine {
         return null;
     }
 
+    //Test This
     @Override
     public boolean endSession() {
         return false;
     }
 
+    //Test This
     @Override
     public String getDescription(int productNumber) {
         for (Product product : productArray) {
@@ -49,11 +57,13 @@ public class UseVendingMachine implements IVendingMachine {
         return "Product not found";
     }
 
+    //Test This
     @Override
     public int getBalance() {
         return moneyPool;
     }
 
+    //Test This
     @Override
     public String[] getProducts() {
         String [] temp = new String[productArray.length];
