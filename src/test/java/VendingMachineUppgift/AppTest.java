@@ -32,8 +32,7 @@ public class AppTest
     public void testRequest (){
         int testProductNumber = 1;
         Product expected = test[0];
-        testObject.request(testProductNumber);
-        Product actual = coke;
+        Product actual = testObject.request(testProductNumber);
         assertEquals(expected,actual);
     }
 
