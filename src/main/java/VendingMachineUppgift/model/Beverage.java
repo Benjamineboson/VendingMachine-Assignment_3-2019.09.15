@@ -7,6 +7,7 @@ public class Beverage extends Product {
         super(price, productName, productCalories, productNumber, allergens);
     }
 
+
     @Override
     public String examine(){
         return "-------------------PRODUCT INFO-------------------\nName: "+getProductName()+"\nCalories: "+getProductCalories()

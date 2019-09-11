@@ -37,7 +37,9 @@ public abstract class Product {
         return productNumber;
     }
 
+    //TESTED
     public abstract String useProduct();
 
+    //TESTED
     public abstract String examine();
 }
