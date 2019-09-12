@@ -1,6 +1,7 @@
 package VendingMachineUppgift;
 
 
+import java.util.Scanner;
 
 public class UseVendingMachine implements IVendingMachine {
     private int moneyPool;
@@ -50,8 +51,11 @@ public class UseVendingMachine implements IVendingMachine {
 
     //TESTED
     @Override
-    public boolean endSession() {
-        return false;
+    public int endSession() {
+        int temp = getBalance();
+        moneyPool = 0;
+        return temp;
+
     }
 
     //TESTED & TESTED TO FAIL
@@ -86,65 +90,65 @@ public class UseVendingMachine implements IVendingMachine {
      */
 
 
-//    public void choose(UseVendingMachine user){
-//        Scanner scan = new Scanner(System.in);
-//        boolean isAlive = true;
-//        while (isAlive) {
-//            System.out.println("-------------------WELCOME-------------------\nCurrent balance: "+moneyPool+
-//                    "\nTo make a purchase press                  (1)" +
-//                    "\nTo add currency press                     (2)" +
-//                    "\nTo get the description of a product press (3)" +
-//                    "\nTo get list of products press             (4)" +
-//                    "\nTo end session press                      (5)" +
-//                    "\n-------------------WELCOME-------------------");
-//            int choice = scan.nextInt();
-//            if (choice == 1)
-//            {
-//                System.out.println("\nCoca-Cola 33cl - [15kr] - #1" +
-//                                   "\nSnickers 100g  - [10kr] - #2" +
-//                                   "\nChicken BLT    - [25kr] - #3" +
-//                                   "\n------------------------------");
-//                System.out.println("Enter the product #: ");
-//                int productChoice = scan.nextInt();
-//                if (moneyPool < productArray[productChoice-1].getPrice()){
-//                    System.out.println("Insufficient funds");
-//                }else {
-//                    System.out.print("Thank you for your purchase: ");
-//                    request(productChoice);
-//                    System.out.println("\nRemaining balance: " + getBalance());
-//                    System.out.println("\nTo shop again press any key, to eat/drink your product press 2: ");
-//                    int eatOrNot = scan.nextInt();
-//                    if (eatOrNot == 2) System.out.println(productArray[productChoice - 1].useProduct());
-//                }
-//            }
-//            else if (choice == 2)
-//            {
-//                System.out.println("Enter amount you want to add\nAcceptable currencies: [1kr] [5kr] [10kr] [20kr] [50kr] [100kr] [500kr] [1000kr]");
-//                int currency = scan.nextInt();
-//                user.addCurrency(currency);
-//            }
-//            else if (choice == 3)
-//            {
-//                System.out.println("\nCoca-Cola 33cl - [15kr] - #1" +
-//                        "\nSnickers 100g  - [10kr] - #2" +
-//                        "\nChicken BLT    - [25kr] - #3" +
-//                        "\n------------------------------");
-//                System.out.println("Enter the product #: ");
-//                int productChoice = scan.nextInt();
-//                System.out.println(getDescription(productChoice));
-//            }else if (choice == 4){
-//                System.out.println("List of available products:");
-//                for (String print:getProducts()){
-//                    System.out.println(print);
-//                }
-//
-//            }
-//            else if (choice == 5){
-//                System.out.println("Thank you for your purchase, your change is: "+user.getBalance());
-//                isAlive = user.endSession();
-//                }
-//            }
-//        }
+    public void choose(UseVendingMachine user){
+        Scanner scan = new Scanner(System.in);
+        boolean isAlive = true;
+        while (isAlive) {
+            System.out.println("-------------------WELCOME-------------------\nCurrent balance: "+moneyPool+
+                    "\nTo make a purchase press                  (1)" +
+                    "\nTo add currency press                     (2)" +
+                    "\nTo get the description of a product press (3)" +
+                    "\nTo get list of products press             (4)" +
+                    "\nTo end session press                      (5)" +
+                    "\n-------------------WELCOME-------------------");
+            int choice = scan.nextInt();
+            if (choice == 1)
+            {
+                System.out.println("\nCoca-Cola 33cl - [15kr] - #1" +
+                                   "\nSnickers 100g  - [10kr] - #2" +
+                                   "\nChicken BLT    - [25kr] - #3" +
+                                   "\n------------------------------");
+                System.out.println("Enter the product #: ");
+                int productChoice = scan.nextInt();
+                if (moneyPool < productArray[productChoice-1].getPrice()){
+                    System.out.println("Insufficient funds");
+                }else {
+                    System.out.print("Thank you for your purchase: ");
+                    request(productChoice);
+                    System.out.println("\nRemaining balance: " + getBalance());
+                    System.out.println("\nTo shop again press any key, to eat/drink your product press 2: ");
+                    int eatOrNot = scan.nextInt();
+                    if (eatOrNot == 2) System.out.println(productArray[productChoice - 1].useProduct());
+                }
+            }
+            else if (choice == 2)
+            {
+                System.out.println("Enter amount you want to add\nAcceptable currencies: [1kr] [5kr] [10kr] [20kr] [50kr] [100kr] [500kr] [1000kr]");
+                int currency = scan.nextInt();
+                user.addCurrency(currency);
+            }
+            else if (choice == 3)
+            {
+                System.out.println("\nCoca-Cola 33cl - [15kr] - #1" +
+                        "\nSnickers 100g  - [10kr] - #2" +
+                        "\nChicken BLT    - [25kr] - #3" +
+                        "\n------------------------------");
+                System.out.println("Enter the product #: ");
+                int productChoice = scan.nextInt();
+                System.out.println(getDescription(productChoice));
+            }else if (choice == 4){
+                System.out.println("List of available products:");
+                for (String print:getProducts()){
+                    System.out.println(print);
+                }
+
+            }
+            else if (choice == 5){
+                System.out.println("Thank you for your purchase, your change is: "+endSession());
+                isAlive = false;
+                }
+            }
+        }
     }
 
 

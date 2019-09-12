@@ -3,10 +3,8 @@ package VendingMachineUppgift;
 import VendingMachineUppgift.model.Beverage;
 import VendingMachineUppgift.model.Candy;
 import VendingMachineUppgift.model.Food;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
 import static org.junit.Assert.*;
 
@@ -50,8 +48,11 @@ public class AppTest
 
     @Test
     public void test_End_Session (){
-        boolean actual = testObject.endSession();
-        assertEquals(false,actual);
+        testObject.addCurrency(50);
+        int expected = 50;
+        int actual = testObject.endSession();
+        assertEquals(expected,actual);
+        assertEquals(0,testObject.endSession());
     }
 
     @Test
