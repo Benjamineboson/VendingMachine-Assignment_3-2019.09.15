@@ -1,5 +1,5 @@
 package VendingMachineUppgift;
-
+// if (Character.isLetter)
 
 import java.util.Scanner;
 
@@ -8,14 +8,9 @@ public class UseVendingMachine implements IVendingMachine {
     private Product[] productArray;
     private int[] acceptableCurrency = {1,5,10,20,50,100,500,1000};
 
-
     public UseVendingMachine(Product[] productArray) {
         this.moneyPool = 0;
         this.productArray = productArray;
-    }
-
-    public Product[] getProductArray() {
-        return productArray;
     }
 
     // TESTED
@@ -32,7 +27,7 @@ public class UseVendingMachine implements IVendingMachine {
         moneyPool += amount;
         }else{
         System.out.println("Enter a valid currency: [1kr] [5kr] [10kr] [20kr] [50kr] [100kr] [500kr] [1000kr]");
-    }
+      }
     }
 
     // TESTED & TESTED TO FAIL
@@ -94,13 +89,14 @@ public class UseVendingMachine implements IVendingMachine {
         Scanner scan = new Scanner(System.in);
         boolean isAlive = true;
         while (isAlive) {
-            System.out.println("-------------------WELCOME-------------------\nCurrent balance: "+moneyPool+
-                    "\nTo make a purchase press                  (1)" +
-                    "\nTo add currency press                     (2)" +
-                    "\nTo get the description of a product press (3)" +
-                    "\nTo get list of products press             (4)" +
-                    "\nTo end session press                      (5)" +
-                    "\n-------------------WELCOME-------------------");
+            System.out.println("|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾WELCOME‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|" +
+                    "\n|Current balance: "+moneyPool +
+                    "\n|To make a purchase press                  (1)" +
+                    "\n|To add currency press                     (2)" +
+                    "\n|To get the description of a product press (3)" +
+                    "\n|To get list of products press             (4)" +
+                    "\n|To end session press                      (5)" +
+                    "\n|___________________WELCOME___________________|");
             int choice = scan.nextInt();
             if (choice == 1)
             {
